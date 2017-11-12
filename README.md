@@ -4,6 +4,7 @@ Celery worker to download and save WHOIS data of a domain to Google Cloud Storag
 To use this script, first you need to edit these two variables inside the tasks.py file:
 
 #Celery Compatible message broker Example: redis://127.0.0.1
+
 broker      = ""    
 
 bucket_name = ""
