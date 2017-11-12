@@ -1,3 +1,6 @@
+broker      = ""    #Celery Compatible message broker. Example: redis://127.0.0.1
+bucket_name = ""    #Name of the Google Cloud Bucket
+
 from celery import Celery
 import time
 import whois
@@ -16,11 +19,7 @@ def add(x):
     bucket = client.get_bucket('testdownload12')
     blob = Blob("%s" % x, bucket)
     x = x.encode("UTF8")
-    #whoisdata = whois.whois(x).query()[1]
-    try:
-    	whoisdata = whois.whois(x)
-    except:
-	return 1
+    whoisdata = whois.whois(x)
 
     whoisdata = json.dumps(whoisdata, indent=4, sort_keys=True, default=str)
 
